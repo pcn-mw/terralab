@@ -1,8 +1,8 @@
 resource "google_compute_instance" "default" {
   project      = "terraform-lab-216614"
-  name         = "simple_vm"
+  name         = "simple-vm"
   machine_type = "n1-standard-1"
-  zone         = "us-central1-f"
+  zone         = "us-central1-a"
 
   boot_disk {
     initialize_params {
