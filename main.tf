@@ -1,17 +1,17 @@
-
-
-provider "gsuite" {
-  oauth_scopes = [
-    "https://www.googleapis.com/auth/admin.directory.group",
-    "https://www.googleapis.com/auth/admin.directory.user"
-  ]
-  credentials = "/Users/paul/credentials.json"
-  impersonated_user_email = "paul@gaexample.net"
-}
-
 provider "google" {
-  credentials = "/Users/paul/credentials.json"
+  credentials = "/home/paul/credentials.json"
 }
+
+#provider "gsuite" {
+#  oauth_scopes = [
+#    "https://www.googleapis.com/auth/admin.directory.group",
+#    "https://www.googleapis.com/auth/admin.directory.user"
+#  ]
+#  credentials = "/home/paul/credentials.json"
+#  impersonated_user_email = "paul@gaexample.net"
+#}
+
+
 # Top-level folder under an organization.
 resource "google_folder" "Paul" {
   display_name = "Paul"
@@ -19,8 +19,8 @@ resource "google_folder" "Paul" {
 }
 
 # Folder nested under another folder.
-resource "google_folder" "Corporate IT" {
-  display_name = "Corporate IT"
+resource "google_folder" "CorporateIT" {
+  display_name = "CorporateIT"
   parent     = "${google_folder.Paul.name}"
 }
 
@@ -31,8 +31,8 @@ resource "google_folder" "Marketing" {
 }
 
 # Folder nested under another folder.
-resource "google_folder" "e-Commerce" {
-  display_name = "e-Commerce"
+resource "google_folder" "eCommerce" {
+  display_name = "eCommerce"
   parent     = "${google_folder.Paul.name}"
 }
 
